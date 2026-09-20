@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#09152f" />
+  <title>Trabajo en equipo: Cuando el silencio esconde una crisis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Press+Start+2P&family=Space+Grotesk:wght@500;600;700&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="aurora aurora-one"></div>
+  <div class="aurora aurora-two"></div>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">✦</span><span>Campus <b>Reto</b></span></div>
+      <div class="round-pill" id="roundLabel">FASE DE PREPARACIÓN</div>
+      <button class="help-button" id="helpButton" type="button" aria-label="Cómo jugar">?</button>
+    </header>
+
+    <section class="screen active" id="introScreen">
+      <div class="intro-copy">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> DESAFÍO COLABORATIVO · 12 RONDAS</div>
+        <h1>La entrega final<br><em>está en tus manos.</em></h1>
+        <p class="intro-text">Tomen decisiones, apoyen a su equipo y superen el cuello de botella antes de que se agote el tiempo.</p>
+      </div>
+      <div class="setup-card glass-card">
+        <div class="card-heading"><span class="heading-icon">⚡</span><div><h2>Formen sus equipos</h2><p>Dos equipos. Un objetivo común.</p></div></div>
+        <div class="team-inputs">
+          <label class="team-field blue-field"><span class="team-dot"></span><span><small>NOMBRE DEL EQUIPO 1</small><input id="blueName" value="Equipo Azul" placeholder="Escribe un nombre" maxlength="20" /></span></label>
+          <label class="team-field purple-field"><span class="team-dot"></span><span><small>NOMBRE DEL EQUIPO 2</small><input id="purpleName" value="Equipo Morado" placeholder="Escribe un nombre" maxlength="20" /></span></label>
+        </div>
+        <button class="primary-button" id="startButton" type="button">Comenzar misión <span>→</span></button>
+        <p class="setup-note"><span>♥</span> Cada equipo comienza con 3 vidas</p>
+      </div>
+      <div class="intro-stats"><span><b>12</b> preguntas</span><i></i><span><b>50+</b> pts por rapidez</span><i></i><span><b>6</b> por equipo</span></div>
+    </section>
+
+    <section class="screen context-screen" id="contextScreen">
+      <div class="context-header"><div class="eyebrow"><span class="eyebrow-dot"></span> ANTES DE JUGAR · LEAN CON ATENCIÓN</div><h1>Trabajo en equipo:<br><em>Cuando el silencio esconde una crisis</em></h1></div>
+      <article class="context-card glass-card">
+        <div class="context-title"><span class="heading-icon">▣</span><div><h2>Contexto de la misión</h2><p>Un equipo, tres semanas y una entrega que no puede esperar.</p></div></div>
+        <div class="context-copy">
+          <p>Un equipo interdisciplinar, o de un mismo programa con distintas tareas asignadas, tiene <b>3 semanas</b> para entregar la fase final de su proyecto de grado.</p>
+          <ul><li><b>Carlos y Daniela</b> han avanzado rápido con la recopilación de información, los formatos y la parte teórica del informe. Sienten que ya hicieron su trabajo y empiezan a presionar al resto.</li><li><b>Sofía</b> está a cargo del prototipo o la evidencia práctica, que depende de los insumos e información que la instructora revisó a última hora. Se siente desbordada y paralizada. No ha pedido ayuda por temor a quedar como incompetente o a que la juzguen.</li><li><b>Mateo</b>, el líder del equipo, asume que todo marcha bien porque nadie ha dicho lo contrario en el grupo de WhatsApp.</li></ul>
+          <p class="context-alert"><strong>Faltando 48 horas para el cierre en la plataforma</strong>, Sofía admite que su parte está retrasada e incompleta. Carlos y Daniela reaccionan con molestia, recriminándole su falta de compromiso, mientras Mateo intenta apagar el incendio trabajando toda la madrugada por su cuenta. El resultado es un trabajo entregado a medias, con el equipo fracturado y un ambiente de tensión imponente.</p>
+        </div>
+        <button class="primary-button" id="rouletteButton" type="button">Ir a la ruleta <span>↗</span></button>
+      </article>
+    </section>
+
+    <section class="screen roulette-screen" id="rouletteScreen">
+      <div class="eyebrow"><span class="eyebrow-dot"></span> SORTEO DE INICIO</div>
+      <h1>¿Quién toma el<br><em>primer turno?</em></h1>
+      <div class="roulette-machine glass-card"><div class="roulette-label">EQUIPO INICIAL</div><div class="roulette-display" id="rouletteDisplay">¿?</div><div class="roulette-lights"><i></i><i></i><i></i><i></i><i></i></div></div>
+      <p class="roulette-status" id="rouletteStatus">La suerte está echada...</p>
+    </section>
+
+    <section class="screen" id="quizScreen">
+      <div class="scoreboard">
+        <div class="score-team blue-score"><div class="score-top"><span class="score-dot"></span><span id="blueTeamLabel">Equipo Azul</span><strong id="blueScore">0 <small>PTS</small></strong></div><div class="lives" id="blueLives"></div></div>
+        <div class="question-count"><span id="questionNumber">01</span><small>/ 12</small><div class="timer" id="timer">--</div></div>
+        <div class="score-team purple-score"><div class="score-top"><strong id="purpleScore">0 <small>PTS</small></strong><span id="purpleTeamLabel">Equipo Morado</span><span class="score-dot"></span></div><div class="lives right" id="purpleLives"></div></div>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="turn-badge" id="turnBadge">TURNO DEL EQUIPO AZUL</div>
+      <article class="question-card glass-card" id="questionCard">
+        <div class="question-meta"><span id="categoryLabel">PLANIFICACIÓN · MÉTODO</span><span id="questionType">SELECCIÓN MÚLTIPLE</span></div>
+        <h2 id="questionText"></h2>
+        <div class="answers" id="answers"></div>
+        <div class="feedback" id="feedback" aria-live="polite"></div>
+        <div class="explanation" id="explanation" hidden>
+          <div class="explanation-title"><span>▣</span> ARCHIVO DE EVIDENCIA</div>
+          <div class="answer-review wrong-review" id="wrongReview" hidden>
+            <strong>✕ POR QUÉ TU RESPUESTA NO ES CORRECTA</strong>
+            <p id="wrongExplanation"></p>
+          </div>
+          <div class="answer-review correct-review">
+            <strong>✓ RESPUESTA CORRECTA</strong>
+            <p id="correctAnswer"></p>
+            <small id="explanationText"></small>
+          </div>
+          <button class="continue-button" id="continueButton" type="button">Siguiente turno <span>▶</span></button>
+        </div>
+      </article>
+      <p class="turn-hint">Conversen en equipo antes de elegir. <span>La misión se gana colaborando.</span></p>
+    </section>
+
+    <section class="screen" id="resultScreen">
+      <div class="result-hero"><div class="trophy">✦</div><div class="eyebrow"><span class="eyebrow-dot"></span> MISIÓN COMPLETADA</div><h1 id="resultTitle">¡Tenemos un equipo ganador!</h1><p id="resultSubtitle">La colaboración hizo la diferencia.</p></div>
+      <div class="final-scores" id="finalScores"></div>
+      <div class="result-actions"><button class="primary-button" id="restartButton" type="button">Jugar otra vez <span>↻</span></button><button class="secondary-button" id="newTeamsButton" type="button">Cambiar equipos</button></div>
+    </section>
+
+    <footer class="footer"><span>APRENDER · DECIDIR · COLABORAR</span><span>Una experiencia de trabajo en equipo</span></footer>
+  </main>
+  <div class="modal-backdrop" id="helpModal" hidden><div class="help-modal glass-card"><button class="close-modal" id="closeHelp" type="button">×</button><div class="modal-icon">?</div><h2>¿Cómo se juega?</h2><p>1. Escriban el nombre de los dos equipos y lean todo el contexto de la misión.</p><p>2. La ruleta decide qué equipo comienza. Los turnos se alternan durante 12 preguntas: cada equipo recibe 3 de selección múltiple y 3 de verdadero o falso.</p><p>3. Las preguntas de selección múltiple tienen 60 segundos. Las de verdadero o falso tienen 30 segundos.</p><p>4. Un acierto suma 50 puntos base más 5 puntos por cada segundo restante. Un error o quedarse sin tiempo resta una vida.</p><p>5. Después de cada respuesta aparece la explicación. Si un equipo pierde sus 3 vidas, la partida termina. Si se completan las preguntas, gana quien tenga más puntos.</p></div></div>
+  <script src="script.js"></script>
+</body>
+</html>
